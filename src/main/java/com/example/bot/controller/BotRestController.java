@@ -2,9 +2,7 @@ package com.example.bot.controller;
 
 import com.example.bot.domain.BotEntity;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
 import org.telegram.telegrambots.meta.api.objects.Update;
 
@@ -17,8 +15,13 @@ public class BotRestController {
         this.botEntity = botEntity;
     }
     @PostMapping("/")
-    public BotApiMethod<?> onUpdate(@RequestParam Update update){
+    public BotApiMethod<?> onUpdate(@RequestBody Update update){
         return botEntity.onWebhookUpdateReceived(update);
+    }
+
+    @GetMapping("/")
+    public String get(){
+        return "hello";
     }
 
 }

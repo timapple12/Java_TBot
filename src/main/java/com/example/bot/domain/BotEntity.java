@@ -28,7 +28,6 @@ public class BotEntity extends TelegramWebhookBot {
                 e.printStackTrace();
             }
         }
-
         return null;
     }
 
