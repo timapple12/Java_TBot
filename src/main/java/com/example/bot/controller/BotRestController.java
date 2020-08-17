@@ -14,6 +14,7 @@ public class BotRestController {
     public BotRestController(BotEntity botEntity) {
         this.botEntity = botEntity;
     }
+
     @PostMapping("/")
     public BotApiMethod<?> onUpdate(@RequestBody Update update){
         return botEntity.onWebhookUpdateReceived(update);
